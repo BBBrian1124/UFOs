@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- Continue the setup by adding a link to Bootstrap's content delivery network (CDN). -->
+<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!--add the link to our stylesheet (style.css)-->
+    <link rel="stylesheet" href="static/css/style.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- update the body class so that it applies a dark background to the whole page -->
+<body class="bg-dark">
+    <!--the wrapper class helps add Bootstrap capabilities such as grouping elements (i.e. tables, paragraphs)-->
+    <div class="wrapper">
+        <!-- BUILD THE NAVBAR -->
+        <!--navbar is a Bootstrap styling to indicate a component fitting across the top of the page-->
+        <!--specifying navbar-expand-lg makes it responsive so this bar resizes based on screen resolution-->
+        <!--add a dark background as well using navbar-dark bg-dark-->
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <!--navbar-brand adds styling-->
+            <!--href points to this index file so that when this is clicked the page reloads the unfiltered data-->
+            <a class="navbar-brand" href="index.html">UFO Sightings</a>
+        </nav>
+
+        <!-- ADD THE JUMBOTRON -->
+        <!-- using bootstrap we create a jumbotron header with the text "the truth is out there"-->
+        <!-- use display-4 to change the font style and size -->
+        <div class="jumbotron">
+            <h1 class="display-4">The Truth is Out There</h1>
+        </div>
+          
+        <!-- ADD THE ARTICLE TITLE AND PARAGRAPH -->
+        <!-- we will make use of bootstraps grid style -->
+        <!-- container-fluid ensures both elements span across the page-->
+        <div class="container-fluid">
+            <!-- row class aligns the title and paragraph neatly -->
+            <div class="row">
+                <!-- recall that the bootstrap column width is 12-->
+                <div class="col-md-4">
+                    <!-- we will assign a width of 4 for the title -->
+                    <!-- The <small> tag we've nested in will add a little bit of extra styling out of the box, too. -->
+                        <!-- Adding it will help de-emphasize the second portion of the title.-->
+                    <h3>UFO Sightings: Fact or Fancy? <small>Ufologists Weigh In</small></h3>
+                </div>
+                
+                <!-- the next 8 columns will hold the paragraph -->
+                <div class="col-md-8">
+                    <p>
+                        Are we alone in the universe? For millennia, humans have turned to the sky to answer this question. Now, thanks to research generously funded by W. Avy, a UFO-enthusiast and amateur ufologist, we can supplement our sky-searching with data analysis. "The release of this analysis is well-timed: It coincides with the celebration of World UFO Day, which is a moment for ufologists around the world to connect, relax, and sample a range of UFO-themed snacks," said Dr. Ursula F. Olivier, the world's preeminent expert on circular sightings. "Citizen-scientists can be especially helpful in both cataloguing sightings—which is hugely helpful for us in our search for aliens—and in helping us celebrate the work that has already been done, such as this data visualization project, which will help us raise awareness of the ubiquity of sightings!" Not everyone is ready to celebrate, however. Local CEO and vocal anti-alien activist V. Isualize reached out to our reporters to go on record as firmly opposed to any attempts to provide access to this data. "If there are aliens, they certainly would like to be left alone," she stated, before directing us to the Leave Aliens Alone (LAA) community engagement initiative she founded and funds. So what do YOU think? Are we alone in the universe? Are aliens trying to contact us, or do they want to be left alone? Dig through the data yourself, and let us know what you see.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create the Table Filter -->
+        <div class="container-fluid">
+            <div class="row">
+            <!-- we will create a section for the filter buttons -->
+              <div class="col-md-3">
+                <!-- We will create a form tag with the text ''filter search' so we know what it is for -->
+                <!-- make this form tag dark on the webpage-->
+                <form class=bg-dark>
+                    <p>Filter Search</p>                
+                <!--to build the filter we will store the inputs within an ordered list --> 
+                <!-- bg-dark makes this area dark -->
+                <ul class="list-group bg-dark">
+                    <!-- create the ordered list -->
+                    <!-- bg-dark makes this area dark -->
+                    <li class="list-group-item bg-dark">
+                        <!-- create a lable to prompt users to input date -->
+                        <label for="date">Enter Date</label>
+                        <!-- allow text input, with a placeholder so users can see what format it should be -->
+                        <!-- the id is what the javascript code will look for when the button is clicked -->
+                        <input type="text" placeholder="1/10/2010" id="datetime" />
+                    </li>
+                    <!-- the next list will be for the button -->
+                    <!-- bg-dark makes this area dark -->
+                    <li class="list-group-item bg-dark">
+                        <!-- we identify the id as filter-bth which our javascript code looks for -->
+                        <!-- it will take the date time and apply the filter -->
+                        <!-- type="button" tells the browser by default it does nothing -->
+                        <!-- howver our Javascript tells it to filter the data -->
+                        <!-- class="btn btn-default" adds bootstrap styling but we changed to to btn-dark -->
+                        <!-- filter table is the button text -->
+                        <button id="filter-btn" type="button" class="btn btn-dark">Filter Table</button>
+                    </li>
+                </ul>
+                </form>
+              </div>
+
+              <!-- create the table to store the data, recall our javascript looks for these tags-->
+              <div class="col-md-9">
+                <!-- "table table-striped" presents a table that is slightly striped to give variation -->
+                    <!--between the rows of data -->
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <!-- create the table headers -->
+                        <th>Date</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Shape</th>
+                        <th>Duration</th>
+                        <th>Comments</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <!-- this links our other files to the index.html file -->
+    <!-- the order matters as it will determine which is loaded first -->
+    <!-- the first line loads in javascript libraries -->
+    <!-- therefore we want to load the data first then the code we've created -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="Static/js/data.js"></script>
+    <script src="Static/js/app.js"></script>
+</body>
+</html>
+
